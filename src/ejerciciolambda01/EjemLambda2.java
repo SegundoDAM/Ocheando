@@ -43,31 +43,35 @@ public class EjemLambda2 extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblNombre = new JLabel("nombre");
 		lblNombre.setBounds(129, 132, 69, 20);
 		contentPane.add(lblNombre);
-		
+
 		textField = new JTextField();
 		textField.setBounds(227, 129, 420, 26);
 		contentPane.add(textField);
 		textField.setColumns(10);
-		
+
 		JButton btnSaluda = new JButton("saluda");
-	
-		btnSaluda.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				lblSaluda.setText("Hola "+textField.getText());
-				System.out.println(e.getSource().getClass());
-			}
+
+		btnSaluda.addActionListener( e -> {
+			lblSaluda.setText("Hola " + textField.getText());
+			System.out.println(e.getSource().getClass());
 		});
-	
-				
+
+		// btnSaluda.addActionListener(new ActionListener() {
+		//
+		// @Override
+		// public void actionPerformed(ActionEvent e) {
+		// lblSaluda.setText("Hola "+textField.getText());
+		// System.out.println(e.getSource().getClass());
+		// }
+		// });
+
 		btnSaluda.setBounds(228, 219, 115, 29);
 		contentPane.add(btnSaluda);
-		
+
 		lblSaluda = new JLabel(" ");
 		lblSaluda.setBounds(36, 405, 722, 56);
 		contentPane.add(lblSaluda);
