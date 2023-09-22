@@ -11,6 +11,11 @@ public class ListaNumeros {
             if(numero%10==0)System.out.println(numero);
         }
     }
+    public void imprimirNumerosLambda(List<Integer> numeros) {
+    	numeros.forEach(numero->{
+    		if(numero%10==0)System.out.println(numero);
+    	});
+    }
     
     @Test
      void test() {
