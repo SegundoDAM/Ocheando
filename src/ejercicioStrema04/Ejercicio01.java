@@ -1,7 +1,9 @@
 package ejercicioStrema04;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Ejercicio01 {
 	public static void main(String[] args) {
@@ -19,6 +21,12 @@ public class Ejercicio01 {
 			}
 		}
 		//usa streams para hace lo mismo
+		List<Integer> collect2 = new Random()
+				.ints(0,100)
+				.limit(20)
+				.sorted()
+				.boxed()
+				.collect(Collectors.toList());
 	}
 	public ArrayList<Integer> randomList(int max) {
 		ArrayList<Integer> list = new ArrayList<>();
