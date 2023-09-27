@@ -22,5 +22,8 @@ public class Cliente extends Persona {
 		this.descuento = descuento;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return getNombre()+" "+descuento;
+	}
 }

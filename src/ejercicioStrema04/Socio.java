@@ -28,6 +28,6 @@ public class Socio {
 	
 	@Override
 	public String toString() {
-		return this.getNombre();
+		return this.getNombre()+" saldo "+getSaldo();
 	}
 }
