@@ -15,19 +15,27 @@ public class Ejercicio01 {
 		ArrayList<Integer> list = new Ejercicio01().randomList(maxim);
 		// no stream
 		ArrayList<Integer> multiplos = new ArrayList<>();
+
+		// usa streams para hace lo mismo
+		List<Integer> collect2 = new Random().ints(0, 100).limit(20).sorted().boxed().collect(Collectors.toList());
+	}
+
+	public static List<Integer> filterByThreeNoStream(List<Integer> list) {
+		ArrayList<Integer> multiplos = new ArrayList();
 		for (Integer integer : list) {
 			if (integer % 3 == 0) {
 				multiplos.add(integer);
 			}
 		}
-		//usa streams para hace lo mismo
-		List<Integer> collect2 = new Random()
-				.ints(0,100)
-				.limit(20)
-				.sorted()
-				.boxed()
-				.collect(Collectors.toList());
+		return multiplos;
 	}
+
+	public List<Integer> filterByThree(List<Integer> aleatorios) {
+		return aleatorios.stream().filter((elemento) -> {
+			return elemento % 3 == 0;
+		}).collect(Collectors.toList());
+	}
+
 	public ArrayList<Integer> randomList(int max) {
 		ArrayList<Integer> list = new ArrayList<>();
 		int size = 20;
