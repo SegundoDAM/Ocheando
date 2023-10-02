@@ -23,5 +23,24 @@ public static void main(String[] args) {
 		}
 	}
 	System.out.println("no streams "+primerRepetido);
+	System.out.println("con streams "+collect3.stream()
+		.filter((Integer elemento)->{
+			collect3.stream().anyMatch((otro)->{return elemento==otro;});
+		});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 }
