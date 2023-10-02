@@ -15,5 +15,7 @@ public class Ejercicio01 {
 		Stream<Integer> lista=collect.stream().map((ele)->{return ele;});
 		IntStream listaDos=collect.stream().mapToInt((ele)->{return ele;});
 		//Halla la suma y la media del flujo creado
+		System.out.println("la suma es " + collect.stream().mapToInt(a -> a).sum());
+		System.out.println("la media es " + collect.stream().mapToInt(a -> a).average());
 	}
 }
