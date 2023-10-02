@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 
 public class PruebaStreamMetodos021 {
 	public static void main(String[] args) {
-		String cosas[] = { "periplo", "nocturno", "cempua","argamasilla"};
+		String cosas[] = { "periplo", "nocturno", "cempua", "argamasilla" };
 		List<String> cadenas = Arrays.asList(cosas);
 		// Que metodos tenemos
 		Stream<String> stream = cadenas.stream();
@@ -36,8 +36,10 @@ public class PruebaStreamMetodos021 {
 			return t.length() > 6;
 		}).collect(Collectors.toList());
 		System.out.println(collect);
-		// stream.noneMatch();
-		// stream.takeWhile();
+		stream = cadenas.stream();
+		stream.noneMatch();
+		stream = cadenas.stream();
+		stream.takeWhile();
 
 	}
 }
