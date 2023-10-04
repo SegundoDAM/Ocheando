@@ -60,4 +60,8 @@ public class Gato {
 		return edad == other.edad && Objects.equals(nombre, other.nombre) && raza == other.raza;
 	}
 
+	public boolean equalsRaza(Raza raza2) {
+		return this.raza.equals(raza2);
+	}
+
 }
