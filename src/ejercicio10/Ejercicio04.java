@@ -8,13 +8,13 @@ import java.util.Set;
 public class Ejercicio04 {
 	/*Reclamación:
 
-		1. Recorre la colección e imprime el número de serie y el nombre correspondiente.
-
-		2. Inserte un mensaje codificado como 5 y llamado Li Xiaohong en el conjunto de mapas
-
+		1. Recorre la colección e imprime el número de serie y el nombre 
+		correspondiente.
+		2. Inserte un mensaje codificado como 5 y llamado Li Xiaohong 
+		en el conjunto de mapas
 		3. Elimine la información numerada 1 en el mapa
-
-		4. Modifique la información del nombre numerada 2 en el mapa establecido en "Zhou Lin"
+		4. Modifique la información del nombre numerada 2 en el
+		 mapa establecido en "Zhou Lin"
 			 * 
 			 */
 	public static void main(String[] args)

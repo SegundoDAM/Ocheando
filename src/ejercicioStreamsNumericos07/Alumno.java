@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Alumno {
+	//Esto no esta bien del todo
 	private final List<Materias> materias=Arrays.asList(Materias.values());
 	private List<Integer> notas;
 	private String nombre;

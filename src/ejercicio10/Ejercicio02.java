@@ -2,6 +2,9 @@ package ejercicio10;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Ejercicio02 {
 	/*
@@ -13,11 +16,7 @@ public class Ejercicio02 {
 	 * iterador y un bucle for mejorado.
 	 */
 	public static void main(String[] args) {
-		String[] strs = { "12345", "67891", "12347809933", "98765432102", "67891", "12347809933" };
-		LinkedList<String> al = new LinkedList<String>();
-		for (int i = 0; i < strs.length; i++) {
-			al.add(strs[i]);
-		}
+		LinkedList<String> al = getListQQ();
 		for (int j = 0; j < al.size(); j++) {
 			for (int k = j + 1; k < al.size(); k++) {
 				if (al.get(j).equals(al.get(k))) {
@@ -30,4 +29,18 @@ public class Ejercicio02 {
 			System.out.println(it.next());
 		}
 	}
+
+	public static List<String> getQQGuay() {
+		return getListQQ().stream().distinct().collect(Collectors.toList());
+	}
+
+	private static LinkedList<String> getListQQ() {
+		String[] strs = { "12345", "67891", "12347809933", "98765432102", "67891", "12347809933" };
+		LinkedList<String> al = new LinkedList<String>();
+		for (int i = 0; i < strs.length; i++) {
+			al.add(strs[i]);
+		}
+		return al;
+	}
+
 }
