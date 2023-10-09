@@ -1,21 +1,36 @@
 package ejercicioStreamsNumericos07;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Alumno {
 	//Esto no esta bien del todo
-	private final List<Materias> materias=Arrays.asList(Materias.values());
-	private List<Integer> notas;
+//	private List<Integer> notas;
+	private List<Nota> notas;
+	
 	private String nombre;
 	
-	public Alumno(List<Integer> notas, String nombre) {
+	public Alumno(List<Nota> notas, String nombre) {
 		super();
 		this.notas = notas;
 		this.nombre = nombre;
 	}
 
-	public List<Integer> getNotas() {
+	public Alumno(Collection<Integer> notas, String nombre2) {
+		LinkedList<Nota> conversion=new LinkedList();
+		Integer[] arrayNotas = (Integer[]) notas.toArray();
+		List<Materias> materias = Arrays.asList(Materias.values());
+		for (int i = 0; i < materias.size(); i++) {
+			conversion.add(new Nota(materias.get(i),arrayNotas[i]));
+		}	
+		this.notas = conversion;
+		this.nombre = nombre;
+	}
+
+	public List<Nota> getNotas() {
 		return notas;
 	}
 
@@ -23,7 +38,6 @@ public class Alumno {
 		return nombre;
 	}
 	public boolean alumnoAprobado() {
-		//TODO
-		return false;
+		return notas.stream().filter((nota)->{return nota.getNota()<5;}).count()<2;
 	}
 }

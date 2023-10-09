@@ -14,6 +14,7 @@ class AlumnoServiceTest {
 	@Test
 	void testMalMatematico() {
 		//Alumnos con matematicas suspensas
+//		assertEquals(1,);
 	}
 	@Test
 	void testBuenaLengua() {
