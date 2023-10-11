@@ -1,10 +1,18 @@
 package ejercicio10;
 
-import java.util.HashSet;
-import java.util.Iterator;
+import static org.junit.Assert.assertTrue;
+
 import java.util.Random;
+import java.util.Set;
+
+import org.junit.jupiter.api.Test;
+
+class Otra {
+
+}
 
 public class Ejercicio03 {
+
 	/*
 	 * Reglas de bolas de dos colores: cada apuesta en la bola de dos colores consta
 	 * de 6 números de bolas rojas y 1 número de bolas azules. El número de bola
@@ -12,29 +20,74 @@ public class Ejercicio03 {
 	 * 16; genere aleatoriamente un número de bola de doble color. (Requiere que no
 	 * se repita el mismo número de color)
 	 */
+
 	public static void main(String[] args) {
-		HashSet<Integer> hs = new HashSet<Integer>();
-		int i = 0;
-		while (i < 6) {
-			Random rand = new Random();
-			int randNum = rand.nextInt(33) + 1;
-			if (!hs.contains(randNum)) {
-				hs.add(randNum);
-				i++;
-			}
-		}
-		boolean flag = true;
-		while (flag) {
-			Random blue = new Random();
-			int blueNum = blue.nextInt(16) + 1;
-			if (!hs.contains(blueNum)) {
-				hs.add(blueNum);
-				flag = false;
-			}
-		}
-		Iterator it = hs.iterator();
-		while (it.hasNext()) {
-			System.out.println(it.next());
-		}
+		Apuesta apuesta = new Apuesta(Set.of(2, 4, 6, 12, 14, 24), 3);
+		Sorteo sorteo = new Sorteo();
+		BolaDobleColor sorteo2 = sorteo.getSorteo();
+		// comparar el sorteo
+		apuesta.comprobarSorteo(sorteo2);
+	}
+
+}
+
+class Sorteo {
+	private BolaDobleColor bolaDobleColor;
+	private Rango bolaRoja = new Rango(1, 33), bolaAzul = new Rango(1, 16);
+
+	public BolaDobleColor getSorteo() {
+		
+		return new BolaDobleColor(
+				getAleatorio(bolaRoja.getMax(),bolaRoja.getMin()),
+				
+				);
+		// TODO
+	}
+
+	public int getAleatorio(int max, int min) {
+		return new Random().nextInt((max - min)+1)+ min;
 	}
 }
+
+class BolaDobleColor {
+	private int roja;
+	private int azul;
+
+	public BolaDobleColor(int roja, int azul) {
+		super();
+		this.roja = roja;
+		this.azul = azul;
+	}
+
+	public boolean comprobar(Integer bolaRoja, int bolaAzul) {
+		return bolaRoja == roja && bolaAzul == azul;
+	}
+}
+
+class Rango {
+	private int min;
+	private int max;
+
+	public int getMin() {
+		return min;
+	}
+
+	public void setMin(int min) {
+		this.min = min;
+	}
+
+	public int getMax() {
+		return max;
+	}
+
+	public void setMax(int max) {
+		this.max = max;
+	}
+
+	public Rango(int min, int max) {
+		super();
+		this.min = min;
+		this.max = max;
+	}
+}
+

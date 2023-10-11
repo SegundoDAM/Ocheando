@@ -7,12 +7,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Alumno {
-	//Esto no esta bien del todo
-//	private List<Integer> notas;
+	// Esto no esta bien del todo
+	// private List<Integer> notas;
 	private List<Nota> notas;
-	
+
 	private String nombre;
-	
+
 	public Alumno(List<Nota> notas, String nombre) {
 		super();
 		this.notas = notas;
@@ -20,12 +20,12 @@ public class Alumno {
 	}
 
 	public Alumno(Collection<Integer> notas, String nombre2) {
-		LinkedList<Nota> conversion=new LinkedList();
+		LinkedList<Nota> conversion = new LinkedList();
 		Integer[] arrayNotas = (Integer[]) notas.toArray();
 		List<Materias> materias = Arrays.asList(Materias.values());
 		for (int i = 0; i < materias.size(); i++) {
-			conversion.add(new Nota(materias.get(i),arrayNotas[i]));
-		}	
+			conversion.add(new Nota(materias.get(i), arrayNotas[i]));
+		}
 		this.notas = conversion;
 		this.nombre = nombre;
 	}
@@ -37,7 +37,10 @@ public class Alumno {
 	public String getNombre() {
 		return nombre;
 	}
+
 	public boolean alumnoAprobado() {
-		return notas.stream().filter((nota)->{return nota.getNota()<5;}).count()<2;
+		return notas.stream().filter((nota) -> {
+			return nota.getNota() < 5;
+		}).count() < 2;
 	}
 }
