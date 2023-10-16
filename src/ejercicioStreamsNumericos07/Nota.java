@@ -22,6 +22,10 @@ public class Nota {
 	public void setNota(int nota) {
 		this.nota = nota;
 	}
+
+	public boolean getEqualsMateria(Materias materia2) {
+		return materia.equals(materia2);
+	}
 	
 	
 }

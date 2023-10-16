@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Alumno {
 	// Esto no esta bien del todo
@@ -21,10 +22,10 @@ public class Alumno {
 
 	public Alumno(Collection<Integer> notas, String nombre2) {
 		LinkedList<Nota> conversion = new LinkedList();
-		Integer[] arrayNotas = (Integer[]) notas.toArray();
 		List<Materias> materias = Arrays.asList(Materias.values());
+		List<Integer> collect = notas.stream().collect(Collectors.toList());
 		for (int i = 0; i < materias.size(); i++) {
-			conversion.add(new Nota(materias.get(i), arrayNotas[i]));
+			conversion.add(new Nota(materias.get(i), collect.get(i)));
 		}
 		this.notas = conversion;
 		this.nombre = nombre;
@@ -42,5 +43,14 @@ public class Alumno {
 		return notas.stream().filter((nota) -> {
 			return nota.getNota() < 5;
 		}).count() < 2;
+	}
+
+	public int getNota(Materias materia) {
+		return notas.stream()
+				.filter((Nota nota) -> {
+					return nota.getEqualsMateria(materia);})
+				.findFirst()
+				.get()
+				.getNota();
 	}
 }

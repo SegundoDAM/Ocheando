@@ -1,4 +1,4 @@
-package grouping11;
+package grouping08;
 
 public enum Raza {
 	angora, persa, siames,colorao, callejero, abisinio, azul_ruso, balines, bengali

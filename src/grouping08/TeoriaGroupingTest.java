@@ -1,4 +1,4 @@
-package grouping11;
+package grouping08;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -9,7 +9,7 @@ class TeoriaGroupingTest {
 	@Test
 	void testTeoriaCinco() {
 		new TeoriaGrouping()
-		.teoriaCinco();
+		.teoriaSiete();
 	}
 
 }
