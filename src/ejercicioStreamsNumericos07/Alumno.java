@@ -20,6 +20,11 @@ public class Alumno {
 		this.nombre = nombre;
 	}
 
+	public float getNotaMedia() {
+		return (float) getNotas().stream()
+		.mapToInt((nota)->{return nota.getNota();}).average()
+		.getAsDouble();
+	}
 	public Alumno(Collection<Integer> notas, String nombre2) {
 		LinkedList<Nota> conversion = new LinkedList();
 		List<Materias> materias = Arrays.asList(Materias.values());
@@ -52,5 +57,9 @@ public class Alumno {
 				.findFirst()
 				.get()
 				.getNota();
+	}
+	public boolean isAprobadaMateria(Materias materia) {
+		int suspenso = 4;
+		return getNota(materia)>suspenso;
 	}
 }

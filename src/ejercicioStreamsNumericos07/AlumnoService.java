@@ -18,5 +18,14 @@ public class AlumnoService {
 		return alumnoRepository.findCantidadConMateriaSuspensa(matematicas);
 	}
 
+	public List<Alumno> getAlumnosInglesYLenguaAprobadas() {
+		return alumnoRepository.findAprobadosMaterias(Materias.ingles,Materias.lengua);
+	}
+
+	public float getNotablePorcentaje() {
+		Intervalo intervalo=new Intervalo(7,8);
+		return alumnoRepository.getIntervaloNotaPorcentaje(intervalo);
+	}
+
 	
 }
