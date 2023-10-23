@@ -26,6 +26,11 @@ public class Nota {
 	public boolean getEqualsMateria(Materias materia2) {
 		return materia.equals(materia2);
 	}
+
+	public boolean isAprobada() {
+		int aprobado = 5;
+		return nota>=aprobado;
+	}
 	
 	
 }

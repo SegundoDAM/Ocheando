@@ -21,10 +21,11 @@ public class Alumno {
 	}
 
 	public float getNotaMedia() {
-		return (float) getNotas().stream()
-		.mapToInt((nota)->{return nota.getNota();}).average()
-		.getAsDouble();
+		return (float) getNotas().stream().mapToInt((nota) -> {
+			return nota.getNota();
+		}).average().getAsDouble();
 	}
+
 	public Alumno(Collection<Integer> notas, String nombre2) {
 		LinkedList<Nota> conversion = new LinkedList();
 		List<Materias> materias = Arrays.asList(Materias.values());
@@ -51,15 +52,19 @@ public class Alumno {
 	}
 
 	public int getNota(Materias materia) {
-		return notas.stream()
-				.filter((Nota nota) -> {
-					return nota.getEqualsMateria(materia);})
-				.findFirst()
-				.get()
-				.getNota();
+		return notas.stream().filter((Nota nota) -> {
+			return nota.getEqualsMateria(materia);
+		}).findFirst().get().getNota();
 	}
+
 	public boolean isAprobadaMateria(Materias materia) {
 		int suspenso = 4;
-		return getNota(materia)>suspenso;
+		return getNota(materia) > suspenso;
+	}
+
+	public long getCantidadSupensas() {
+		return notas.stream().filter((nota) -> {
+			return !nota.isAprobada();
+		}).count();
 	}
 }

@@ -4,6 +4,7 @@ import java.lang.module.ResolutionException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class AlumnoRepositoryOM implements AlumnoRepository {
@@ -75,5 +76,15 @@ public class AlumnoRepositoryOM implements AlumnoRepository {
 				})
 			.count()/ (float) alumnos.size() * 100;
 	}
+	public Map<Long,Long> findAlumnosYMateriasSuspensas() {
+		return alumnos.stream()
+				.collect(
+						Collectors.groupingBy(Alumno::getCantidadSupensas,Collectors.counting()));
+		
+	}
 
+	@Override
+	public int getCantidadAlumnos() {
+		return alumnos.size();
+	}
 }

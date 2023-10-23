@@ -43,11 +43,11 @@ class AlumnoServiceTest {
 		 * pocentaje de alumnos por numero de materias suspensas cuantos con cero, con
 		 * una, etc.
 		 */
-		Map <Integer,Float> expected=new HashMap();
-		expected.put(0,25f);
-		expected.put(1,50f);
-		expected.put(2,25f);
-		Map <Integer,Float> mapaPorcentual=alumnoService.getPorcentajeAlumnosPorCantidadMateriasSuspensas();
+		Map <Long,Float> expected=new HashMap();
+		expected.put(0l,25f);
+		expected.put(1l,50f);
+		expected.put(2l,25f);
+		Map <Long,Float> mapaPorcentual=alumnoService.getPorcentajeAlumnosPorCantidadMateriasSuspensas();
 		assertEquals(expected,mapaPorcentual);
 	}
 

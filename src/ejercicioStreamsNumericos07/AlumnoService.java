@@ -1,6 +1,9 @@
 package ejercicioStreamsNumericos07;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
 
 public class AlumnoService {
 	AlumnoRepository alumnoRepository;
@@ -26,6 +29,17 @@ public class AlumnoService {
 		Intervalo intervalo=new Intervalo(7,8);
 		return alumnoRepository.getIntervaloNotaPorcentaje(intervalo);
 	}
+
+	public Map<Long, Float> getPorcentajeAlumnosPorCantidadMateriasSuspensas() {
+		return alumnoRepository.findAlumnosYMateriasSuspensas()
+				.entrySet().stream()
+				.collect(Collectors.toMap(
+						Entry::getKey,
+						(entry)->
+						{return entry.getValue()/(float) alumnoRepository.getCantidadAlumnos()*100;}));
+	}
+
+	
 
 	
 }
